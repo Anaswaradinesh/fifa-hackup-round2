@@ -18,11 +18,6 @@
 
 ---
 
-## 🌐 Live Demo
-🔗 [Click here to view demo](#) ← *add link here*
-
----
-
 ## 🎥 Demo Video
 📹 [Watch on Google Drive](#) ← *add link here*
 
