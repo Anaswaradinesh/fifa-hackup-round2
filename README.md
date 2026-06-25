@@ -17,9 +17,8 @@
 | Danny Paul Sebastian | Frontend Developer |
 
 ---
-
-## 🎥 Demo Video
-📹 [Watch on Google Drive](#) ← *add link here*
+## 🎬 Demo
+[Watch Demo Video](https://drive.google.com/file/d/1Bqg5L_oe-6vSq7yzRXEnf-r3aAlkpwqB/view?usp=sharing)
 
 ---
 
