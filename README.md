@@ -20,8 +20,6 @@
 ## 🎬 Demo
 [Watch Demo Video](https://drive.google.com/file/d/1Bqg5L_oe-6vSq7yzRXEnf-r3aAlkpwqB/view?usp=sharing)
 
----
-
 ## 📊 Presentation
 📑 [View PPT]( https://docs.google.com/presentation/d/1u6UDRLgQkBWD3ALwveHF6BvX20uuJ8QZ/edit?usp=sharing&ouid=117068933820124572796&rtpof=true&sd=true)
 
