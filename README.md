@@ -23,7 +23,7 @@
 ---
 
 ## 📊 Presentation
-📑 [View PPT](#) ← *add link here*
+📑 [View PPT](https://docs.google.com/presentation/d/1u6UDRLgQkBWD3ALwveHF6BvX20uuJ8QZ/edit?usp=sharing&ouid=117068933820124572796&rtpof=true&sd=true)
 
 ---
 
