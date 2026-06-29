@@ -1,9 +1,13 @@
+// =====================
 // STATE
+// =====================
 let cartCount = 0;
 let currentTeam = "argentina";
 let cartItems = [];
 
-// TEAM DATA
+// =====================
+// TEAM DATA (FIXED PATHS)
+// =====================
 const teamData = {
   argentina: {
     flag: "🇦🇷",
@@ -13,19 +17,33 @@ const teamData = {
     color2: "#0984e3",
     bg: "linear-gradient(135deg, #1a3a5c, #0d1f33)",
     bgImage: "argentina.jpg",
+
     stats: { wc: "3 World Cups", rank: "Rank #1", fan: "Fan Rating 98%" },
+
     legends: [
-      { emoji: "messi.jpg", name: "Lionel Messi", desc: "8x Ballon d'Or winner. Led Argentina to 2022 World Cup glory. 800+ career goals. Undisputed GOAT." },
-      { emoji: "maradona.jpg", name: "Diego Maradona", desc: "1986 World Cup winner & Golden Ball. Scored the Goal of the Century. A living legend of the beautiful game." }
+      {
+        img: "messi.jpg",
+        name: "Lionel Messi",
+        desc: "8x Ballon d'Or winner. Led Argentina to World Cup glory."
+      },
+      {
+        img: "maradona.jpg",
+        name: "Diego Maradona",
+        desc: "1986 World Cup legend. Goal of the Century."
+      }
     ],
-    comments: ["💬 Vamos Argentina!", "💬 Messi is the GOAT!", "💬 Another World Cup soon! 🏆"],
+
+    comments: ["💬 Vamos Argentina!", "💬 Messi is GOAT!", "💬 World Cup soon! 🏆"],
+
     jerseys: [
       { img: "home argentina.jpeg", name: "Home Jersey", price: "$89.99" },
       { img: "away argentina.jpeg", name: "Away Jersey", price: "$84.99" },
       { img: "retro argentina.jpeg", name: "Retro 86 Jersey", price: "$99.99" }
     ],
+
     nextMatch: "vs Brazil • Jul 9 • 8:00 PM"
   },
+
   brazil: {
     flag: "🇧🇷",
     name: "BRAZIL",
@@ -34,7 +52,236 @@ const teamData = {
     color2: "#f0932b",
     bg: "linear-gradient(135deg, #1a3a1a, #0d330d)",
     bgImage: "brazil.jpg",
+
     stats: { wc: "5 World Cups", rank: "Rank #5", fan: "Fan Rating 99%" },
+
+    legends: [
+      {
+        img: "pele.jpg",
+        name: "Pelé",
+        desc: "3x World Cup winner. King of Football."
+      },
+      {
+        img: "ronaldinho.jpg",
+        name: "Ronaldinho",
+        desc: "Magic skills that brought joy to football."
+      }
+    ],
+
+    comments: ["💬 Brasil é o melhor!", "💬 Pelé forever!", "💬 Samba football 🔥"],
+
+    jerseys: [
+      { img: "home brazil.jpeg", name: "Home Jersey", price: "$89.99" },
+      { img: "away brazil.jpeg", name: "Away Jersey", price: "$84.99" },
+      { img: "retro brazil.jpeg", name: "Retro 70 Jersey", price: "$109.99" }
+    ],
+
+    nextMatch: "vs France • Jul 12 • 7:00 PM"
+  },
+
+  france: {
+    flag: "🇫🇷",
+    name: "FRANCE",
+    slogan: "Les Bleus Forever",
+    color: "#a29bfe",
+    color2: "#6c5ce7",
+    bg: "linear-gradient(135deg, #1a1a3a, #0d0d33)",
+    bgImage: "france.jpg",
+
+    stats: { wc: "2 World Cups", rank: "Rank #2", fan: "Fan Rating 96%" },
+
+    legends: [
+      {
+        img: "Zidane.jpg",
+        name: "Zinedine Zidane",
+        desc: "1998 World Cup winner. Midfield maestro."
+      },
+      {
+        img: "Henry.jpg",
+        name: "Thierry Henry",
+        desc: "France legend & Arsenal top scorer."
+      }
+    ],
+
+    comments: ["💬 Allez les Bleus!", "💬 Zidane magic!", "💬 France will win! 🏆"],
+
+    jerseys: [
+      { img: "home france.jpeg", name: "Home Jersey", price: "$89.99" },
+      { img: "away france.jpeg", name: "Away Jersey", price: "$84.99" }, // FIXED
+      { img: "france retro.jpeg", name: "Retro 98 Jersey", price: "$104.99" }
+    ],
+
+    nextMatch: "vs Argentina • Jul 15 • 9:00 PM"
+  }
+};
+
+// =====================
+// MATCH SCHEDULE
+// =====================
+const matchSchedule = {
+  argentina: [
+    { date: "2026-07-04T07:30:00+05:30", opponent: "Cape Verde", location: "Miami", round: "Round of 32" }
+  ],
+  brazil: [
+    { date: "2026-06-29T22:30:00+05:30", opponent: "Japan", location: "Houston", round: "Round of 32" }
+  ],
+  france: [
+    { date: "2026-07-01T06:30:00+05:30", opponent: "Sweden", location: "New Jersey", round: "Round of 32" }
+  ]
+};
+
+// =====================
+// COUNTDOWN
+// =====================
+let countdownInterval = null;
+
+function startCountdown() {
+  if (countdownInterval) clearInterval(countdownInterval);
+
+  countdownInterval = setInterval(() => {
+    const nextMatch = matchSchedule[currentTeam]?.[0];
+    const el = document.getElementById("countdown-display");
+    if (!nextMatch || !el) return;
+
+    const diff = new Date(nextMatch.date).getTime() - Date.now();
+
+    if (diff <= 0) {
+      el.innerHTML = `<div class="countdown-box">⚽ Match is LIVE!</div>`;
+      return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    el.innerHTML = `
+      <div class="countdown-box"><div>${d}</div><small>Days</small></div>
+      <div class="countdown-box"><div>${h}</div><small>Hours</small></div>
+      <div class="countdown-box"><div>${m}</div><small>Mins</small></div>
+      <div class="countdown-box"><div>${s}</div><small>Secs</small></div>
+    `;
+  }, 1000);
+}
+
+// =====================
+// SWITCH TEAM
+// =====================
+function switchTeam(team) {
+  currentTeam = team;
+  const data = teamData[team];
+
+  document.documentElement.style.setProperty("--team-color", data.color);
+  document.documentElement.style.setProperty("--team-color-2", data.color2);
+  document.documentElement.style.setProperty("--team-bg", data.bg);
+
+  document.getElementById("team-name").textContent = data.name;
+  document.getElementById("team-slogan").textContent = data.slogan;
+
+  document.getElementById("stat-wc").textContent = data.stats.wc;
+  document.getElementById("stat-rank").textContent = data.stats.rank;
+  document.getElementById("stat-fan").textContent = data.stats.fan;
+
+  const hero = document.getElementById("hero");
+  hero.style.backgroundImage = `url('${data.bgImage}')`;
+
+  // LEGENDS FIX
+  document.getElementById("legend1-img").src = data.legends[0].img;
+  document.getElementById("legend1-name").textContent = data.legends[0].name;
+  document.getElementById("legend1-desc").textContent = data.legends[0].desc;
+
+  document.getElementById("legend2-img").src = data.legends[1].img;
+  document.getElementById("legend2-name").textContent = data.legends[1].name;
+  document.getElementById("legend2-desc").textContent = data.legends[1].desc;
+
+  // STORE
+  const store = document.getElementById("store-grid");
+  store.innerHTML = data.jerseys.map(j => `
+    <div class="jersey-card glass">
+      <img src="${j.img}" />
+      <h3>${j.name}</h3>
+      <p>${j.price}</p>
+      <button onclick="addToCart('${j.name}')">Add to Cart</button>
+    </div>
+  `).join("");
+
+  startCountdown();
+}
+
+// =====================
+// CART
+// =====================
+function addToCart(name) {
+  const data = teamData[currentTeam];
+  const item = data.jerseys.find(j => j.name === name);
+
+  const existing = cartItems.find(i => i.name === name && i.team === currentTeam);
+
+  if (existing) existing.qty++;
+  else cartItems.push({ name, price: parseFloat(item.price.slice(1)), team: currentTeam, qty: 1 });
+
+  cartCount = cartItems.reduce((s, i) => s + i.qty, 0);
+  document.getElementById("cart-count").textContent = cartCount;
+
+  showToast(`${name} added!`);
+  renderCartItems();
+}
+
+// =====================
+// CART RENDER
+// =====================
+function renderCartItems() {
+  const box = document.getElementById("cart-items");
+  const totalEl = document.getElementById("cart-total");
+
+  if (!cartItems.length) {
+    box.innerHTML = "Cart empty";
+    totalEl.textContent = "$0";
+    return;
+  }
+
+  let total = 0;
+
+  box.innerHTML = cartItems.map((i, idx) => {
+    total += i.price * i.qty;
+
+    return `
+      <div>
+        ${teamData[i.team].flag} ${i.name}
+        <button onclick="changeQty(${idx}, -1)">-</button>
+        ${i.qty}
+        <button onclick="changeQty(${idx}, 1)">+</button>
+      </div>
+    `;
+  }).join("");
+
+  totalEl.textContent = `$${total.toFixed(2)}`;
+}
+
+function changeQty(i, d) {
+  cartItems[i].qty += d;
+  if (cartItems[i].qty <= 0) cartItems.splice(i, 1);
+
+  cartCount = cartItems.reduce((s, i) => s + i.qty, 0);
+  document.getElementById("cart-count").textContent = cartCount;
+
+  renderCartItems();
+}
+
+// =====================
+// TOAST
+// =====================
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2000);
+}
+
+// =====================
+// INIT
+// =====================
+switchTeam("argentina");    stats: { wc: "5 World Cups", rank: "Rank #5", fan: "Fan Rating 99%" },
     legends: [
       { emoji: "pele.jpg", name: "Pelé", desc: "3x World Cup winner. The King of Football. 1283 career goals." },
       { emoji: "ronaldino.jpg", name: "Ronaldinho", desc: "2x Ballon d'Or. Magic skills that defied physics." }
