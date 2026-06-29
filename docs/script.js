@@ -12,17 +12,17 @@ const teamData = {
     color: "#74b9ff",
     color2: "#0984e3",
     bg: "linear-gradient(135deg, #1a3a5c, #0d1f33)",
-    bgImage: "images/argentina.jpg",
+    bgImage: "argentina.jpg",
     stats: { wc: "3 World Cups", rank: "Rank #1", fan: "Fan Rating 98%" },
     legends: [
-      { emoji: "images/messi.jpg", name: "Lionel Messi", desc: "8x Ballon d'Or winner. Led Argentina to 2022 World Cup glory. 800+ career goals. Undisputed GOAT." },
-      { emoji: "images/maradona.jpg", name: "Diego Maradona", desc: "1986 World Cup winner & Golden Ball. Scored the Goal of the Century. A living legend of the beautiful game." }
+      { emoji: "messi.jpg", name: "Lionel Messi", desc: "8x Ballon d'Or winner. Led Argentina to 2022 World Cup glory. 800+ career goals. Undisputed GOAT." },
+      { emoji: "maradona.jpg", name: "Diego Maradona", desc: "1986 World Cup winner & Golden Ball. Scored the Goal of the Century. A living legend of the beautiful game." }
     ],
     comments: ["💬 Vamos Argentina!", "💬 Messi is the GOAT!", "💬 Another World Cup soon! 🏆"],
     jerseys: [
-      { img: "images/home argentina.jpeg", name: "Home Jersey", price: "$89.99" },
-      { img: "images/away argentina.jpeg", name: "Away Jersey", price: "$84.99" },
-      { img: "images/retro argentina.jpeg", name: "Retro 86 Jersey", price: "$99.99" }
+      { img: "home argentina.jpeg", name: "Home Jersey", price: "$89.99" },
+      { img: "away argentina.jpeg", name: "Away Jersey", price: "$84.99" },
+      { img: "retro argentina.jpeg", name: "Retro 86 Jersey", price: "$99.99" }
     ],
     nextMatch: "vs Brazil • Jul 9 • 8:00 PM"
   },
@@ -33,17 +33,17 @@ const teamData = {
     color: "#f9ca24",
     color2: "#f0932b",
     bg: "linear-gradient(135deg, #1a3a1a, #0d330d)",
-    bgImage: "images/brazil.jpg",
+    bgImage: "brazil.jpg",
     stats: { wc: "5 World Cups", rank: "Rank #5", fan: "Fan Rating 99%" },
     legends: [
-      { emoji: "images/pele.jpg", name: "Pelé", desc: "3x World Cup winner. The King of Football. 1283 career goals." },
-      { emoji: "images/ronaldino.jpg", name: "Ronaldinho", desc: "2x Ballon d'Or. Magic skills that defied physics." }
+      { emoji: "pele.jpg", name: "Pelé", desc: "3x World Cup winner. The King of Football. 1283 career goals." },
+      { emoji: "ronaldino.jpg", name: "Ronaldinho", desc: "2x Ballon d'Or. Magic skills that defied physics." }
     ],
     comments: ["💬 Brasil é o melhor!", "💬 Pelé forever in our hearts!", "💬 The Samba style never dies! 🕺"],
     jerseys: [
-      { img: "images/home brazil.jpeg", name: "Home Jersey", price: "$89.99" },
-      { img: "images/away brazil.jpeg", name: "Away Jersey", price: "$84.99" },
-      { img: "images/retro brazil.jpeg", name: "Retro 70 Jersey", price: "$109.99" }
+      { img: "home brazil.jpeg", name: "Home Jersey", price: "$89.99" },
+      { img: "away brazil.jpeg", name: "Away Jersey", price: "$84.99" },
+      { img: "retro brazil.jpeg", name: "Retro 70 Jersey", price: "$109.99" }
     ],
     nextMatch: "vs France • Jul 12 • 7:00 PM"
   },
@@ -54,17 +54,17 @@ const teamData = {
     color: "#a29bfe",
     color2: "#6c5ce7",
     bg: "linear-gradient(135deg, #1a1a3a, #0d0d33)",
-    bgImage: "images/france.jpg",
+    bgImage: "france.jpg",
     stats: { wc: "2 World Cups", rank: "Rank #2", fan: "Fan Rating 96%" },
     legends: [
-      { emoji: "images/Zidane.jpg", name: "Zinedine Zidane", desc: "1998 World Cup winner. Ballon d'Or legend. The maestro." },
-      { emoji: "images/Henry.jpg", name: "Thierry Henry", desc: "Arsenal's all-time top scorer. France's greatest striker." }
+      { emoji: "Zidane.jpg", name: "Zinedine Zidane", desc: "1998 World Cup winner. Ballon d'Or legend. The maestro." },
+      { emoji: "Henry.jpg", name: "Thierry Henry", desc: "Arsenal's all-time top scorer. France's greatest striker." }
     ],
     comments: ["💬 Allez les Bleus!", "💬 Zidane was pure art!", "💬 France will win again! 🏆"],
     jerseys: [
-      { img: "images/home france.jpeg", name: "Home Jersey", price: "$89.99" },
-      { img: "images/away france .jpeg", name: "Away Jersey", price: "$84.99" },
-      { img: "images/france retro.jpeg", name: "Retro 98 Jersey", price: "$104.99" }
+      { img: "home france.jpeg", name: "Home Jersey", price: "$89.99" },
+      { img: "away france .jpeg", name: "Away Jersey", price: "$84.99" },
+      { img: "france retro.jpeg", name: "Retro 98 Jersey", price: "$104.99" }
     ],
     nextMatch: "vs Argentina • Jul 15 • 9:00 PM"
   }
